@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Confirmation";
+}
+<div class="jumbotron">
+    <h2>Registration Confirmation</h2>
+
+    Please confirm the information you entered is correct.<br />
+    <div class="conftext">
+        <p1>
+            <b>First Name:</b><br /> @ViewBag.FirstName <br />
+            <b>Last Name:</b><br /> @ViewBag.LastName <br />
+            <b>Birthdate:</b><br /> @ViewBag.Birthdate <br />
+            <b>Email:</b><br /> @ViewBag.Email<br />
+            <b>Phone Number:</b><br /> @ViewBag.PhoneNumber<br />
+            <b>Password:</b><br />@ViewBag.Password<br />
+            <b>Gender:</b><br />@ViewBag.Gender<br />
+            <b>Subscribe:</b><br />@ViewBag.Subscribe<br />
+            <b>FavDrink:</b><br />@ViewBag.FavDrink<br />
+        </p1>
+        <form action="/Home/Welcome">
+            <input type="hidden" name="input" value="@ViewBag.FirstName" />
+            <input type="submit" value="Register" />
+
+        </form>
+    </div>
+</div>
+<style>
+    body {
+        background-color: #AE553B;
+    }
+    .p1{
+        font-size:26px;
+    }
+</style>
