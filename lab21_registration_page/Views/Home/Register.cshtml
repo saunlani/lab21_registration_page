@@ -1,101 +1,81 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Register";
 }
+@using lab21_registration_page.Models;
 <head>
     <script>
-function validateForm() {
-    var a = document.forms["RegInfo"]["_firstname"].value;
-    if (a == "") {
-        alert("First Name field must be completed.");
-        return false;
-    }
-
-    var b = document.forms["RegInfo"]["_lastname"].value;
-    if (b == "") {
-        alert("Last Name field must be completed.");
-        return false;
-    }
-
-    var c = document.forms["RegInfo"]["_birthdate"].value;
-    if (c == "") {
-        alert("Birthdate field must be completed.");
-        return false;
-    }
-
-    var d = document.forms["RegInfo"]["_email"].value;
-    if (d == "") {
-        alert("Email field must be completed.");
-        return false;
-    }
-    var e = document.forms["RegInfo"]["_phonenumber"].value;
-    if (e == "") {
-        alert("Phone Number field must be completed.");
-        return false;
-    }
-
-    var f = document.forms["RegInfo"]["_password"].value;
-    if (f == "") {
-        alert("Password field must be completed.");
-        return false;
-    }
-    var f = document.forms["RegInfo"]["_gender"].value;
-    if (f == "") {
-        alert("Gender must be selected.");
-        return false;
-    }
-    function sendGender() {
-        var x = document.getElementById("_gender").value;
-    }
-    function sendSubscribe() {
-        var s = document.getElementById("_subscribe").value;
-    }
-}
+        //checks for matching passwords
+        function check(input) {
+            if (input.value != document.getElementById('Password').value) {
+                input.setCustomValidity('Password Must be Matching.');
+            } else {
+                // input is valid -- reset the error message
+                input.setCustomValidity('');
+            }
+        }
     </script>
 </head>
+
 <div class="container">
     <div class="jumbotron">
         <h2>Register</h2>
 
         <div class="text">
             We serve up suprises every week for our registered members. Receive offers and discounts on your favorite items,
-            points with every purchase, plus extra treats and goodies just for being you.
+            points with every purchase!
         </div>
 
+        @*User Registration Form*@
         <div class="forms">
             <form name="RegInfo" action="/Home/Confirmation" onsubmit="return validateForm()" method="get">
                 <br />
-                First Name:<br /><input type="text" name="_firstname" /><br />
-                Last Name:<br /><input type="text" name="_lastname" /><br />
-                Birthdate:<br /><input type="date" name="_birthdate" /><br />
-                Email:<br /><input type="text" name="_email" /><br />
-                Phone Number:<br /><input type="text" name="_phonenumber" /><br />
-                Password:<br /><input type="password" name="_password" /><br />
-                Gender:<br /><input type="radio" onclick="sendGender()" name="_gender" value="male"> Male<br>
-                <input type="radio" onclick="sendGender()" name="_gender" value="female"> Female<br>
-                <input type="checkbox" onchange="sendSubscribe()" name="_subscribe" value="subscribed">
-                <label for="subscribeNews">Subscribe to newsletter?</label>
-                <br />Favorite Coffee Drink:<br /><select name="_fdrink">
-                    <option value="Americano">Americano</option>
-                    <option value="Cappuccino">Cappuccino</option>
-                    <option value="Espresso">Espresso</option>
-                    <option value="Machiato">Machiato</option>
-                    <option value="DripCoffee">Drip Coffee</option>
-                    <option value="ChaiLatte">Chai Latte</option>
-                    <option value="IrishCoffee">Irish Coffee</option>
-                </select><br />
-                <input type="submit" name="Register!" />
-                <input type="reset" name="Reset" /><br />
+                <fieldset>
+                    
+                    First Name:<br /><input type="text" name="FirstName" required/><br />
+                    Last Name:<br /><input type="text" name="LastName" required/><br />
+                    Birthdate:<br /><input type="date" name="BirthDate" required/><br />
+                    Email:<br /><input type="email" required name="Email"/><br />
+
+                    Phone Number (Format: (999)999-9999)<br /><input type="tel" pattern='[\(]\d{3}[\)]\d{3}[\-]\d{4}' name="Phone" required/><br />
+                    Password:<br /><input type="password" name="Password" required id="Password"/><br />
+                    Confirm Password:<br /><input type="password" name="_cpassword" required oninput="check(this)"/><br />
+                    Gender:<br /><input type="radio" onclick="sendGender()" name="Gender" value="male" required> Male<br>
+                    <input type="radio" onclick="sendGender()" name="_gender" value="female"> Female<br>
+                    <input type="checkbox" onchange="sendSubscribe()" name="Subscribe" value="subscribed">
+                    <label for="subscribeNews">Subscribe to newsletter?</label>
+                    <br />Favorite Coffee Drink:<br /><select name="FavDrink" required>
+                        <option value="Americano">Americano</option>
+                        <option value="Cappuccino">Cappuccino</option>
+                        <option value="Espresso">Espresso</option>
+                        <option value="Machiato">Machiato</option>
+                        <option value="DripCoffee">Drip Coffee</option>
+                        <option value="ChaiLatte">Chai Latte</option>
+                        <option value="IrishCoffee">Irish Coffee</option>
+                    </select>
+
+                    <br />Select a bag of coffee to receive a free voucher for:<br /><select name="FreeCoffee">
+                        @foreach (var c in ViewBag.CoffeeList)
+                        {
+                            <option value="@c.Name">@c.Name</option>
+                        }
+                    </select><br />
+                    <p><input type="checkbox" required name="terms"> I accept the <u>Terms and Conditions</u></p>
+                    <input type="submit" name="Register!" />
+                    <input type="reset" name="Reset" /><br />
+                </fieldset>
             </form>
         </div>
     </div>
-    </div>
-    <style>
-        .forms {
-            margin: auto;
-        }
 
-        body {
-            background-color: #AE553B;
-        }
-    </style>
+</div>
+
+<style>
+    .forms {
+        margin: auto;
+    }
+
+
+    body {
+        background-color: #AE553B;
+    }
+</style>

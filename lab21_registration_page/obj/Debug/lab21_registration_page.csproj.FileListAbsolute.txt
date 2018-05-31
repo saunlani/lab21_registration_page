@@ -184,3 +184,7 @@ Z:\Projects\lab21_registration_page\lab21_registration_page\obj\Debug\lab21_regi
 Z:\Projects\lab21_registration_page\lab21_registration_page\obj\Debug\lab21_registration_page.dll
 Z:\Projects\lab21_registration_page\lab21_registration_page\obj\Debug\lab21_registration_page.pdb
 Z:\Projects\lab21_registration_page\lab21_registration_page\obj\Debug\lab21_registration_page.csprojAssemblyReference.cache
+Z:\Projects\lab21_registration_page\lab21_registration_page\bin\EntityFramework.dll
+Z:\Projects\lab21_registration_page\lab21_registration_page\bin\EntityFramework.SqlServer.dll
+Z:\Projects\lab21_registration_page\lab21_registration_page\bin\EntityFramework.xml
+Z:\Projects\lab21_registration_page\lab21_registration_page\bin\EntityFramework.SqlServer.xml

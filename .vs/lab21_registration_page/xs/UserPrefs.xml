@@ -1,0 +1,22 @@
+﻿<Properties StartupConfiguration="{AAD5F22C-0D89-4C37-824F-651B5EBFADE7}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="lab21_registration_page/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="lab21_registration_page/Views/Home/Index.cshtml" Line="17" Column="5" />
+      <File FileName="lab21_registration_page/Views/Home/Register.cshtml" Line="122" Column="70" />
+      <File FileName="lab21_registration_page/Models/Coffee.cs" Line="16" Column="30" />
+      <File FileName="lab21_registration_page/Views/Home/Confirmation.cshtml" Line="20" Column="38" />
+      <File FileName="lab21_registration_page/Controllers/HomeController.cs" Line="70" Column="1" />
+      <File FileName="lab21_registration_page/Views/Home/Welcome.cshtml" Line="1" Column="1" />
+      <File FileName="lab21_registration_page/Views/Home/Logout.cshtml" Line="7" Column="1" />
+      <File FileName="lab21_registration_page/Views/Home/Contact.cshtml" Line="1" Column="1" />
+      <File FileName="lab21_registration_page/Views/Shared/_Layout.cshtml" Line="27" Column="21" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.lab21__registration__page PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

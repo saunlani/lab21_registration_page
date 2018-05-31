@@ -5,9 +5,41 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <div class="jumbotron">
-    <h1><font size="20"> Welcome to the GC Coffee Shop!</font></h1>
+    <h1>
+        <font size="20">
+            Welcome to the Chirpus Coffee Shop!
+
+        </font>
+    </h1>
     <p class="lead">Reward yourself by registering an account!</p>
+
     <p><a href="/Home/Register" class="btn btn-primary btn-lg">Register&raquo;</a></p>
+   @*<p>In this session, you have visited the Contact page @Session["Counter"] times.</p>
+    <p>You have visited this About Page @Request.Cookies["Counter"].Value times.</p>*@
+
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        @foreach (lab21_registration_page.Models.Item item in ViewBag.Items)
+        {
+        <tr>
+            <td><img src="~/Content/@item.Image"/></td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+            <td>
+                @item.Price<br />
+        </td>
+        </tr>
+        }
+    </table>
+
+
 </div>
 
 @*<div class="row">
@@ -35,4 +67,5 @@
     body {
         background-color: #AE553B;
     }
+
 </style>
